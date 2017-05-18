@@ -5,19 +5,40 @@ from config import ACCOUNT_SID, AUTH_TOKEN, TWILIO_NUMBER
 def validates_choice(user_choice):
     """Returns bool of user's choice"""
 
-    pass
+    if user_choice.lower() == ("y" or "yes"):
+        return True
+    else:
+        return False
 
 
 def gets_to_number():
     """Ask user for phone number, returns it with +1 added"""
 
-    pass
+    user_number = raw_input("What's yo numba? ")
+
+    user_number.strip("-")
+    return user_number
+    user_number.strip("(")
+    return user_number
+    user_number.strip(")")
+    return user_number
+    user_number.strip("\n")
+    return user_number
+
+    if len(user_number) == 10 and user_number.isdigit() == True:
+        user_number = "+1" + user_number
+        return user_number
+    else:
+        print "Not valid entry. Enter an 8 digit numba!"
+        gets_to_number()
 
 
 def gets_message_to_send():
     """Ask user for message to send"""
 
-    pass
+    user_msg = raw_input("What is your message? ")
+
+    return user_msg
 
 
 def send_message(to_number, to_message, ACCOUNT_SID,
@@ -44,6 +65,7 @@ def main(ACCOUNT_SID, AUTH_TOKEN, TWILIO_NUMBER):
 
     while validated_user_choice:
 
+        print validated_user_choice
         to_number = gets_to_number()
         to_message = gets_message_to_send()
 
